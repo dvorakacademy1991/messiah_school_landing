@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="메시아 학교 - 음악이론부터 합창·딕션·발성·성악법, 그리고 실제 무대 경험까지 체계적으로 배우는 전문 합창 교육 프로그램">
+<title>메시아 학교 | Messiah School</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Noto+Serif+KR:wght@400;500;600;700&display=swap');
+
+:root{
+  --ink:#181716;
+  --muted:#6f6b65;
+  --paper:#f7f3eb;
+  --cream:#eee7da;
+  --gold:#a98442;
+  --gold-dark:#765b2b;
+  --line:#d8cdbb;
+  --white:#fffdf9;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:var(--paper);
+  font-family:'Noto Sans KR',sans-serif;
+  line-height:1.75;
+}
+a{color:inherit;text-decoration:none}
+.container{width:min(1120px,calc(100% - 40px));margin:auto}
+
+/* Header */
+header{
+  position:fixed;
+  z-index:50;
+  top:0;left:0;right:0;
+  transition:.3s;
+  color:#fff;
+}
+header.scrolled{
+  background:rgba(25,23,20,.94);
+  backdrop-filter:blur(12px);
+  box-shadow:0 8px 30px rgba(0,0,0,.12);
+}
+.nav{
+  height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.logo{
+  font-family:'Noto Serif KR',serif;
+  font-size:18px;
+  letter-spacing:.08em;
+  font-weight:600;
+}
+.logo small{
+  display:block;
+  font-family:Georgia,serif;
+  font-size:9px;
+  letter-spacing:.28em;
+  opacity:.7;
+}
+nav{display:flex;gap:28px;font-size:13px}
+nav a{opacity:.82;transition:.2s}
+nav a:hover{opacity:1;color:#e7c77e}
+.menu{display:none;border:0;background:none;color:#fff;font-size:25px}
+
+/* Hero */
+.hero{
+  min-height:760px;
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+  color:#fff;
+  background:
+    linear-gradient(90deg,rgba(12,11,10,.9) 0%,rgba(12,11,10,.64) 46%,rgba(12,11,10,.28) 100%),
+    radial-gradient(circle at 80% 30%,rgba(189,151,76,.28),transparent 30%),
+    linear-gradient(125deg,#141311,#3b3327 55%,#171512);
+}
+.hero:before{
+  content:"";
+  position:absolute;inset:0;
+  opacity:.14;
+  background-image:
+    repeating-linear-gradient(0deg,transparent 0 31px,rgba(255,255,255,.18) 32px,transparent 33px),
+    linear-gradient(90deg,transparent 0 49%,rgba(255,255,255,.18) 49.1%,transparent 49.2%);
+  mask-image:linear-gradient(90deg,black,transparent 78%);
+}
+.hero .container{position:relative}
+.kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  font-size:12px;
+  letter-spacing:.25em;
+  color:#d9bd7e;
+  margin-bottom:24px;
+}
+.kicker:before{content:"";width:38px;height:1px;background:#c4a15c}
+.hero h1{
+  margin:0;
+  font-family:'Noto Serif KR',serif;
+  font-size:clamp(48px,8vw,88px);
+  line-height:1.1;
+  font-weight:500;
+  letter-spacing:-.055em;
+}
+.hero h1 span{
+  display:block;
+  margin-top:12px;
+  font-family:Georgia,serif;
+  font-size:.38em;
+  letter-spacing:.25em;
+  color:#c9ad70;
+}
+.hero p{
+  max-width:640px;
+  margin:30px 0 0;
+  color:rgba(255,255,255,.78);
+  font-size:16px;
+  word-break:keep-all;
+}
+.hero-actions{display:flex;gap:12px;margin-top:36px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:50px;padding:0 24px;border:1px solid rgba(255,255,255,.35);
+  font-size:13px;transition:.25s;
+}
+.btn.primary{background:#b18a48;border-color:#b18a48;color:#fff}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(0,0,0,.2)}
+.hero-note{
+  position:absolute;right:0;bottom:10px;
+  font-family:Georgia,serif;font-size:10px;letter-spacing:.22em;color:rgba(255,255,255,.35);
+  writing-mode:vertical-rl;
+}
+
+/* Intro */
+.intro{padding:110px 0 90px;text-align:center}
+.eyebrow{
+  color:var(--gold-dark);
+  font-family:Georgia,serif;
+  letter-spacing:.24em;
+  font-size:11px;
+  text-transform:uppercase;
+}
+.intro h2,.section-head h2{
+  font-family:'Noto Serif KR',serif;
+  font-weight:500;
+  letter-spacing:-.045em;
+  font-size:clamp(28px,4vw,42px);
+  margin:15px 0 22px;
+}
+.intro p{
+  max-width:720px;margin:auto;color:var(--muted);
+  word-break:keep-all;font-size:15px;
+}
+.quote{
+  margin:36px auto 0;
+  font-family:'Noto Serif KR',serif;
+  color:#3b342b;
+  font-size:17px;
+}
+.quote:before,.quote:after{color:var(--gold);font-family:Georgia,serif;font-size:28px}
+.quote:before{content:"“";margin-right:6px}.quote:after{content:"”";margin-left:6px}
+
+/* Sections */
+.section{padding:95px 0}
+.section.dark{background:#211f1b;color:#fff}
+.section.cream{background:var(--cream)}
+.section-head{margin-bottom:42px}
+.section-head.center{text-align:center}
+.section-head p{color:var(--muted);margin:8px 0 0;font-size:14px}
+.dark .section-head p{color:rgba(255,255,255,.6)}
+.gold-line{width:48px;height:2px;background:var(--gold);margin:18px 0}
+.center .gold-line{margin:18px auto}
+
+/* Curriculum */
+.curriculum{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:1px;
+  background:var(--line);border:1px solid var(--line);
+}
+.card{background:var(--white);padding:34px 32px;min-height:190px}
+.card .num{font-family:Georgia,serif;color:var(--gold);font-size:13px}
+.card h3{font-family:'Noto Serif KR',serif;font-size:20px;font-weight:600;margin:8px 0 12px}
+.card p{font-size:13px;color:var(--muted);margin:0;word-break:keep-all}
+
+/* Schedule */
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.info-box{
+  padding:32px;background:rgba(255,255,255,.62);
+  border:1px solid var(--line);
+}
+.info-box h3{
+  margin:0 0 20px;font-family:'Noto Serif KR',serif;font-size:20px;
+}
+.info-box dl{margin:0}
+.info-box dl div{display:grid;grid-template-columns:100px 1fr;padding:10px 0;border-bottom:1px solid rgba(120,100,70,.15)}
+.info-box dl div:last-child{border:0}
+dt{color:var(--gold-dark);font-size:12px;font-weight:600}
+dd{margin:0;font-size:14px;word-break:keep-all}
+
+/* Timeline */
+.timeline{position:relative;max-width:900px;margin:0 auto}
+.timeline:before{content:"";position:absolute;left:112px;top:0;bottom:0;width:1px;background:#574f43}
+.event{display:grid;grid-template-columns:112px 1fr;min-height:70px;position:relative}
+.event .date{font-family:Georgia,serif;color:#c4a15c;font-size:14px;padding-top:4px}
+.event .content{border-left:0;padding:0 0 25px 35px;position:relative}
+.event .content:before{
+  content:"";position:absolute;left:-5px;top:8px;width:9px;height:9px;
+  background:#c4a15c;border-radius:50%;box-shadow:0 0 0 5px #211f1b;
+}
+.event strong{font-family:'Noto Serif KR',serif;font-size:16px;font-weight:500}
+.event span{display:block;color:rgba(255,255,255,.52);font-size:12px;margin-top:3px}
+
+/* Conductor */
+.conductor{display:grid;grid-template-columns:1fr 1.25fr;gap:70px;align-items:center}
+.portrait{
+  aspect-ratio:4/5;
+  background:
+    linear-gradient(145deg,rgba(169,132,66,.15),transparent),
+    #3a352e;
+  position:relative;overflow:hidden;
+}
+.portrait:after{
+  content:"";position:absolute;inset:12px;border:1px solid rgba(220,190,125,.4);
+}
+.portrait-text{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  flex-direction:column;color:#d5bc88;
+}
+.portrait-text b{font-family:Georgia,serif;font-size:58px;font-weight:400}
+.portrait-text span{font-size:11px;letter-spacing:.3em;margin-top:5px}
+.conductor h2{font-family:'Noto Serif KR',serif;font-size:36px;font-weight:500;margin:0}
+.conductor p{color:var(--muted);word-break:keep-all}
+.link-btn{
+  display:inline-block;margin-top:15px;color:var(--gold-dark);
+  border-bottom:1px solid var(--gold);padding-bottom:4px;font-size:13px;
+}
+
+/* CTA */
+.cta{
+  padding:105px 0;text-align:center;
+  background:
+    radial-gradient(circle at center,rgba(185,149,82,.14),transparent 38%),
+    #161512;color:#fff;
+}
+.cta h2{font-family:'Noto Serif KR',serif;font-size:clamp(30px,5vw,48px);font-weight:500;margin:15px 0}
+.cta p{color:rgba(255,255,255,.65);font-size:14px}
+.cta .btn{margin-top:25px}
+
+/* Footer */
+footer{background:#0d0c0b;color:#999;padding:40px 0;font-size:11px}
+.footer-inner{display:flex;justify-content:space-between;gap:20px}
+footer strong{color:#ddd;font-weight:500}
+footer p{margin:5px 0}
+
+
+/* Director expanded profile */
+.director-lead{
+  display:grid;
+  grid-template-columns:minmax(280px,380px) 1fr;
+  gap:70px;
+  align-items:center;
+}
+.director-copy p{color:var(--muted);font-size:14px;word-break:keep-all;margin:0 0 18px}
+.director-copy strong{color:#4d402c;font-weight:600}
+.director-motto{
+  margin-top:28px!important;
+  padding:22px 0 5px 25px;
+  border-left:2px solid var(--gold);
+  color:#4d402c!important;
+  font-family:'Noto Serif KR',serif;
+  font-size:16px!important;
+  line-height:1.9;
+}
+.director-stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  margin-top:70px;
+}
+.director-stats div{padding:28px 22px;border-right:1px solid var(--line)}
+.director-stats div:last-child{border-right:0}
+.director-stats b{display:block;font-family:Georgia,serif;color:var(--gold-dark);font-size:28px;font-weight:400;margin-bottom:6px}
+.director-stats span{font-size:11px;color:var(--muted);line-height:1.6}
+.director-details{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:1px;
+  background:var(--line);
+  margin-top:55px;
+  border:1px solid var(--line);
+}
+.director-details article{background:var(--white);padding:30px}
+.detail-num{font-family:Georgia,serif;color:var(--gold);font-size:12px}
+.director-details h3{font-family:'Noto Serif KR',serif;font-size:18px;margin:7px 0 10px}
+.director-details p{font-size:12px;color:var(--muted);line-height:1.85;margin:0;word-break:keep-all}
+.legacy{
+  margin-top:45px;
+  padding:28px 32px;
+  border:1px solid #c9b58e;
+  background:rgba(255,255,255,.45);
+}
+.legacy-label{font-family:Georgia,serif;letter-spacing:.2em;color:var(--gold-dark);font-size:10px}
+.legacy p{margin:10px 0 0;color:#5d554b;font-family:'Noto Serif KR',serif;font-size:13px;line-height:1.9;word-break:keep-all}
+
+/* Mobile */
+@media(max-width:720px){
+  .container{width:min(100% - 30px,560px)}
+  .nav{height:64px}
+  nav{display:none}
+  .menu{display:block}
+  .hero{min-height:720px}
+  .hero p{font-size:14px}
+  .hero-actions{flex-direction:column;width:180px}
+  .hero-note{display:none}
+  .intro{padding:75px 0}
+  .section{padding:72px 0}
+  .curriculum,.info-grid,.conductor{grid-template-columns:1fr}
+  .card{min-height:auto;padding:28px 24px}
+  .timeline:before{left:78px}
+  .event{grid-template-columns:78px 1fr}
+  .event .content{padding-left:26px}
+  .conductor{gap:35px}
+  .portrait{max-width:380px;margin:auto}
+  .conductor h2{font-size:30px}
+  .director-lead{grid-template-columns:1fr;gap:35px}
+  .director-stats{grid-template-columns:1fr 1fr;margin-top:45px}
+  .director-stats div:nth-child(2){border-right:0}
+  .director-stats div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .director-details{grid-template-columns:1fr;margin-top:40px}
+  .legacy{padding:22px}
+  .footer-inner{flex-direction:column}
+}
+</style>
+</head>
+
+<body>
+<header id="header">
+  <div class="container nav">
+    <a href="#top" class="logo">메시아 학교<small>MESSIAH SCHOOL</small></a>
+    <nav>
+      <a href="#about">학교소개</a>
+      <a href="#curriculum">수업내용</a>
+      <a href="#schedule">수업안내</a>
+      <a href="#concerts">연주일정</a>
+      <a href="#teacher">감독님 소개</a>
+      <a href="#apply">모집안내</a>
+    </nav>
+    <button class="menu" aria-label="메뉴">☰</button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="container">
+      <div class="kicker">MESSIAH SCHOOL · 2026</div>
+      <h1>메시아 학교<span>음악을 배우고 · 노래하고 · 무대에 서다</span></h1>
+      <p>
+        음악이론부터 합창·딕션·발성·성악법, 그리고 실제 무대 경험까지
+        체계적으로 배우는 전문 음악 교육 과정입니다.
+      </p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#apply">수강 신청하기</a>
+        <a class="btn" href="#curriculum">교육과정 보기</a>
+      </div>
+      <div class="hero-note">CLASSICAL CHORAL · ORATORIO · STAGE EXPERIENCE</div>
+    </div>
+  </section>
+
+  <section class="intro" id="about">
+    <div class="container">
+      <div class="eyebrow">About Messiah School</div>
+      <h2>음악을 사랑한다면,<br>누구나 무대의 주인공이 될 수 있습니다.</h2>
+      <div class="gold-line"></div>
+      <p>
+        &lt;메시아 학교&gt;는 단순한 성악 수업을 넘어 음악을 이해하고,
+        합창의 언어를 익히며, 실제 공연 무대까지 경험하는 교육 프로그램입니다.
+        음악을 사랑하고 전문적으로 노래를 배우고 싶은 분이라면 누구나 도전하세요.
+      </p>
+      <div class="quote">배움이 연주가 되고, 연주가 무대가 됩니다.</div>
+    </div>
+  </section>
+
+  <section class="section cream" id="curriculum">
+    <div class="container">
+      <div class="section-head center">
+        <div class="eyebrow">Curriculum</div>
+        <h2>메시아 학교 수업 내용</h2>
+        <div class="gold-line"></div>
+        <p>기초 음악 이론에서 실제 오라토리오 무대까지 단계적으로 경험합니다.</p>
+      </div>
+
+      <div class="curriculum">
+        <article class="card">
+          <div class="num">01 · MUSIC</div>
+          <h3>음악이론 & 작품 분석</h3>
+          <p>화성학, 대위법, 악곡 분석, 딕션, 발성, 창법 등 성악과 합창을 위한 핵심 기초를 탄탄하게 익힙니다.</p>
+        </article>
+        <article class="card">
+          <div class="num">02 · CHORAL</div>
+          <h3>헨델 《메시아》 합창</h3>
+          <p>헨델의 대표 오라토리오 《메시아》를 중심으로 합창의 구조와 음악적 표현을 배우며 실제 연주를 준비합니다.</p>
+        </article>
+        <article class="card">
+          <div class="num">03 · STAGE</div>
+          <h3>실전 공연 경험</h3>
+          <p>서울오라토리오 정기연주회 및 특별연주회 등 다양한 무대 참여를 통해 공연의 전 과정을 경험합니다.</p>
+        </article>
+        <article class="card">
+          <div class="num">04 · PERFORMANCE</div>
+          <h3>예술적 성장</h3>
+          <p>예술의전당 콘서트홀, 롯데콘서트홀 등 전문 공연장에서 실제 무대 경험을 쌓으며 음악적 자신감을 키웁니다.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="schedule">
+    <div class="container">
+      <div class="section-head center">
+        <div class="eyebrow">Class Information</div>
+        <h2>수업 안내</h2>
+        <div class="gold-line"></div>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-box">
+          <h3>수강 대상</h3>
+          <dl>
+            <div><dt>대상</dt><dd>만 20세 ~ 50세 미만</dd></div>
+            <div><dt>개강</dt><dd>2026년 11월 예정</dd></div>
+          </dl>
+        </div>
+        <div class="info-box">
+          <h3>수업 일정</h3>
+          <dl>
+            <div><dt>요일</dt><dd>매주 토요일</dd></div>
+            <div><dt>시간</dt><dd>오후 2:00 ~ 6:00</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark" id="concerts">
+    <div class="container">
+      <div class="section-head center">
+        <div class="eyebrow">Performance Calendar</div>
+        <h2>2026 — 2027 연주 일정</h2>
+        <div class="gold-line"></div>
+        <p>수업에서 배운 음악을 실제 공연 무대에서 완성합니다.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="event">
+          <div class="date">2026. 12</div>
+          <div class="content"><strong>헨델 《메시아》</strong><span>정기 연주</span></div>
+        </div>
+        <div class="event">
+          <div class="date">2027. 03</div>
+          <div class="content"><strong>모차르트 《스타바트 마테르》</strong><span>예술의전당</span></div>
+        </div>
+        <div class="event">
+          <div class="date">04</div>
+          <div class="content"><strong>가곡의 밤</strong><span>특별연주</span></div>
+        </div>
+        <div class="event">
+          <div class="date">06</div>
+          <div class="content"><strong>모차르트 C장조 미사</strong></div>
+        </div>
+        <div class="event">
+          <div class="date">09</div>
+          <div class="content"><strong>창작 가곡</strong></div>
+        </div>
+        <div class="event">
+          <div class="date">10</div>
+          <div class="content"><strong>창작 오라토리오 《Te Deum》</strong></div>
+        </div>
+        <div class="event">
+          <div class="date">12</div>
+          <div class="content"><strong>헨델 《메시아》</strong><span>한국 연주 · 베를린 콘체르트하우스 해외연주</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cream" id="teacher">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Artistic Director · Conductor · Music Theorist</div>
+        <h2>최영철 감독</h2>
+        <div class="gold-line"></div>
+        <p>오라토리움 음악을 중심으로 연주·교육·이론·국제 문화교류를 이어온 음악가</p>
+      </div>
+
+      <div class="director-lead">
+        <div class="portrait" aria-label="최영철 감독 소개 영역">
+          <div class="portrait-text">
+            <b>YC</b>
+            <span>CHOI YOUNG CHUL</span>
+          </div>
+        </div>
+
+        <div class="director-copy">
+          <p>
+            최영철 감독은 한양대학교 관현악과와 동 대학원을 졸업한 후 미국으로 건너가
+            <strong>로버트 쇼(Robert Shaw)</strong>에게 합창지휘를 사사하였다.
+            이후 거장 <strong>밀티아데스 카리디스(Miltiades Caridis)</strong>에게
+            오라토리오 지휘를 도제식으로 배우고, 오스트리아 빈 국립음악대학교에서
+            오케스트라 및 오페라 지휘를 전공하였다.
+          </p>
+          <p>
+            오라토리움 음악에 뜻을 세운 그는 1991년부터 서울오라토리오 합창단과 오케스트라,
+            드보르작 아카데미 등을 잇달아 창립하여 상임지휘자 및 감독으로 이끌어오고 있다.
+            오라토리움 음악 중심의 연주 활동과 문화예술·교육 교류, 전문 연주자 양성,
+            세계 음악 인재 발굴, 한국 전통음악의 세계화와 음악이론의 체계화를 위해 힘써 왔다.
+          </p>
+          <p class="director-motto">
+            “자신의 이름이 알려지기보다 음악의 역사를 이끌어온<br>
+            위대한 작곡가들이 진심으로 존경받기를 바란다.”
+          </p>
+        </div>
+      </div>
+
+      <div class="director-stats">
+        <div><b>1991</b><span>서울오라토리오 및<br>음악교육 활동 시작</span></div>
+        <div><b>21학기</b><span>드보르작 아카데미 ×<br>프라하 음악원 교육 교류</span></div>
+        <div><b>2010</b><span>국제 안토닌 드보르작<br>작곡콩쿠르 설립</span></div>
+        <div><b>39년</b><span>음악의 원리와 원칙을<br>탐구해 온 연구의 시간</span></div>
+      </div>
+
+      <div class="director-details">
+        <article>
+          <span class="detail-num">01</span>
+          <h3>국제 문화·교육 교류</h3>
+          <p>
+            1996년부터 해외 음악가의 한국 초청 연주와 국내 음악가의 해외 무대를 주관해왔다.
+            2005년에는 드보르작 아카데미와 체코 프라하 음악원 간 정규 계절학기 협력 과정을
+            체결하여 교육 교류를 이어오고 있다. 체코 정부로부터 실버메달과
+            문화외교 훈장 ‘그라티아스 아기트(Gratias Agit)’를 수여받았으며,
+            체코 드보르작 협회 영예회원으로 위촉되었다.
+          </p>
+        </article>
+
+        <article>
+          <span class="detail-num">02</span>
+          <h3>음악이론의 체계화</h3>
+          <p>
+            지난 39년간 음악의 ‘원리와 원칙’을 밝히기 위한 연구에 매진하였다.
+            대위법(Counterpoint)과 화성학(Harmony)을 과학적이고 체계적으로 정리한
+            저서를 출간했으며, 현재 『음악미학』 집필에 몰두하고 있다.
+          </p>
+        </article>
+
+        <article>
+          <span class="detail-num">03</span>
+          <h3>국제 콩쿠르와 차세대 음악인</h3>
+          <p>
+            2010년 국제 안토닌 드보르작 작곡콩쿠르(IADCC)를 설립하고 총재로서
+            제11회 대회까지 이끌었다. 2007년부터 국제 안토닌 드보르작 성악콩쿠르(IADVC)의
+            수석심사위원 및 집행위원으로 초청되어 젊은 성악가들의 유럽 무대와
+            한국 초청공연을 주관하고 있다.
+          </p>
+        </article>
+
+        <article>
+          <span class="detail-num">04</span>
+          <h3>동서양 음악문화의 융합</h3>
+          <p>
+            한국 전통음악의 음계와 음악적 요소를 중심으로 서양음악과의 융합 가능성을
+            연구해왔다. 우리 민요에 내재된 음악적 가능성을 서양의 대위법을 통해 탐구하며
+            동서양 음악문화 융합이론의 기틀을 마련하고, 이를 해외 연주와 작곡콩쿠르,
+            학술 세미나 등을 통해 세계 음악인들과 공유하고 있다.
+          </p>
+        </article>
+      </div>
+
+      <div class="legacy">
+        <div class="legacy-label">LEGACY OF DVOŘÁK</div>
+        <p>
+          작곡가 안토닌 드보르작의 손자인 안토닌 드보르작 3세는 최영철 감독에게
+          작곡가의 예술적 유산을 계승해 줄 것을 요청하며, 가족이 소장하던 드보르작 흉상,
+          교향곡 제9번 「신세계로부터」 초판본, 여러 기악 악보와 친필 서신 등을 기증하였다.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="apply">
+    <div class="container">
+      <div class="eyebrow">Admission · 2026</div>
+      <h2>당신의 목소리로<br>다음 무대를 준비하세요.</h2>
+      <p>신청 기간 · 2026년 8월 8일(토) ~ 9월 28일(월)</p>
+      <p>드보르작아카데미 〈메시아 학교〉 담당자 · 010-2909-2582</p>
+      <a class="btn primary" href="tel:010-2909-2582">전화로 문의하기</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <strong>메시아 학교 · MESSIAH SCHOOL</strong>
+      <p>음악을 배우고, 노래하고, 실제 무대에 서는 사람들을 위한 합창 교육 과정</p>
+    </div>
+    <div>
+      <p>문의 010-2909-2582</p>
+      <p>© 2026 Messiah School. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 40);
+});
+</script>
+</body>
+</html>
