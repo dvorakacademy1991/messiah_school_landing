@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>강사 소개 · 최영철 감독 | 메시아 학교</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* ---------- instructor page additions ---------- */
+  .ihero{
+    background:
+      radial-gradient(ellipse at 80% -10%, rgba(198,161,91,.16), transparent 55%),
+      linear-gradient(180deg, var(--ink) 0%, var(--ink-2) 100%);
+    color:var(--parchment);
+    padding:72px 0 76px;
+  }
+  .back{
+    display:inline-flex;align-items:center;gap:8px;color:var(--gold-soft);
+    font-size:13.5px;letter-spacing:.06em;margin-bottom:34px;
+  }
+  .back:hover{color:var(--gold);}
+  .ihero-inner{display:grid;grid-template-columns:300px 1fr;gap:52px;align-items:end;}
+  @media(max-width:780px){.ihero-inner{grid-template-columns:1fr;}}
+  .iphoto{border:1px solid var(--gold-soft);padding:10px;}
+  .iphoto img{filter:sepia(.12) saturate(1.05);}
+  .ihero h1{color:var(--parchment);font-size:clamp(32px,5vw,48px);}
+  .ihero .role{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold-soft);font-size:18px;margin-top:10px;}
+  .ihero .titles{margin-top:20px;font-size:14.5px;color:#d7dcec;line-height:2;}
+  .ihero .titles span{display:block;}
+
+  .lede-box{max-width:760px;margin:0 auto;text-align:center;}
+  .lede-box p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(19px,2.4vw,24px);color:var(--teal-deep);line-height:1.7;}
+
+  .bio p{max-width:760px;margin:0 auto 20px;font-size:15.5px;color:#3a352c;}
+  .bio p:last-child{margin-bottom:0;}
+
+  .highlight-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  @media(max-width:900px){.highlight-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:520px){.highlight-grid{grid-template-columns:1fr;}}
+  .hcard{background:#fff;border:1px solid var(--line);padding:26px 20px;text-align:center;}
+  .hcard .num{font-family:'Cormorant Garamond',serif;font-size:34px;color:var(--gold);font-weight:600;}
+  .hcard .lab{font-size:13.5px;color:#514d45;margin-top:8px;}
+
+  .pub-list{max-width:640px;margin:0 auto;list-style:none;padding:0;}
+  .pub-list li{
+    display:flex;gap:18px;padding:16px 0;border-bottom:1px solid var(--line);font-size:15px;color:#3a352c;
+  }
+  .pub-list li:last-child{border-bottom:none;}
+  .pub-list .no{font-family:'Cormorant Garamond',serif;color:var(--gold);font-weight:600;flex:none;width:28px;}
+
+  .quotes{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+  @media(max-width:780px){.quotes{grid-template-columns:1fr;}}
+  .qcard{background:var(--ink);color:var(--parchment);padding:34px 30px;position:relative;}
+  .qcard:before{content:"\201C";font-family:'Cormorant Garamond',serif;font-size:60px;color:var(--gold);position:absolute;top:6px;left:20px;line-height:1;opacity:.6;}
+  .qcard p.q{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;line-height:1.7;color:var(--gold-soft);position:relative;z-index:1;margin-top:26px;}
+  .qcard p.a{margin-top:18px;font-size:13px;letter-spacing:.04em;color:#b9c0d4;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a class="brand" href="index.html">
+      <svg viewBox="0 0 24 24"><path d="M4 16c3-6 6 6 9 0s6-6 7-2" fill="none" stroke="#c6a15b" stroke-width="1.6" stroke-linecap="round"/></svg>
+      메시아 학교
+    </a>
+    <nav class="navlinks">
+      <a href="index.html#curriculum">커리큘럼</a>
+      <a href="index.html#performances">연주 일정</a>
+      <a href="index.html#recruit" class="cta">신청 안내</a>
+    </nav>
+  </div>
+</header>
+
+<section class="ihero">
+  <div class="wrap">
+    <a class="back" href="index.html">← 메시아 학교로 돌아가기</a>
+    <div class="ihero-inner">
+      <div class="iphoto">
+        <img src="assets/choi-youngchul.jpg" alt="최영철 감독 지휘 모습">
+      </div>
+      <div>
+        <p class="eyebrow latin">Instructor</p>
+        <h1>최영철 감독</h1>
+        <p class="role latin">Oratorium Maestro</p>
+        <div class="titles">
+          <span>서울오라토리오 감독, 상임 지휘자</span>
+          <span>프라하 콘서바토리 &amp; 드보르작 아카데미 감독 겸 교수</span>
+          <span>국제 안토닌 드보르작 성악콩쿨 심사위원 및 실무집행위원</span>
+          <span>국제 안토닌 드보르작 작곡콩쿨 감독</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap lede-box">
+    <p>"마에스트로 Choi는 인류의 음악을 구해낼 메시아와 같은 분입니다."</p>
+  </div>
+</section>
+
+<section class="bio">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Biography</p>
+      <h2>약력</h2>
+    </div>
+    <p>목포중·고등학교를 졸업한 최영철 감독은 목포교육대학교와 한양대학교(관현악과) 및 동 대학원(음악학)을 마친 뒤 미국으로 건너가 Robert Shaw에게 합창 지휘를 사사했습니다. 이후 거장 Miltiades Caridis로부터 오라토리오를 도제 수업으로 익혔고, 오스트리아 빈 국립 음대에서 오케스트라·오페라 지휘를 전공했습니다.</p>
+    <p>오라토리움 음악에 뜻을 세운 그는 1991년부터 서울오라토리오 합창단과 오케스트라, 드보르작 아카데미를 차례로 설립하여 상임 지휘자이자 감독으로 이끌어오고 있습니다. 서울오라토리오와 함께 오라토리움 음악을 중심으로 한 꾸준한 연주 활동은 물론, 문화예술·교육 교류, 이론과 실제를 겸비한 전문 연주자 양성, 전 세계 음악 인재 발굴, 한국 전통음악의 세계화, 음악이론의 체계화를 이루어 왔습니다. 상업성을 배제한 순수음악 정신을 지켜온 그는 현존하는 세계 유일의 '오라토리움 마에스트로'로 불립니다.</p>
+    <p>1996년부터 해외 음악가의 한국 초청연주와 대한민국 음악가의 해외연주를 주관해 온 그는, 2005년 드보르작 아카데미와 200년 전통의 체코 프라하 음악원 간 정규 계절학기 협력과정을 체결하여 현재까지 21학기의 교육 교류를 이어오고 있습니다. 유럽과의 문화·연주·교육 교류에 앞장서 온 공로로 체코 정부로부터 '실버메달'과 문화외교 최고 영예인 'Gratias Agit'상을 받았으며, 안토닌 드보르작 3세는 그를 작곡가의 위업을 계승할 후계자로 요청하고 드보르작 흉상, 교향곡 9번 &lt;신세계로부터&gt; 초판본과 여러 기악 악보, 작곡가의 친필 서신을 기증했습니다. 체코 드보르작 협회는 그를 영예회원으로 위촉했습니다.</p>
+    <p>지난 39년간 '음악의 원리와 원칙'을 밝히기 위해 연구해 온 그는 음악의 구성 원리를 총괄하는 학문인 대위법과 화성학을 체계적으로 정리한 저술로 결실을 거두었으며, 서양음악 양식을 역사상 최초로 과학·체계적으로 정리한 음악학자로 세계의 주목을 받고 있습니다. 2010년에는 '국제 안토닌 드보르작 작곡콩쿨'을 설립해 2023년 제11회 대회까지 성공적으로 이끌었고, 2007년부터는 '국제 안토닌 드보르작 성악콩쿨'의 심사위원 및 집행위원으로도 활동하며 젊은 성악가들의 유럽 오페라 데뷔와 국내 초청공연을 주관하고 있습니다.</p>
+    <p>우리 향토음악, 특히 남도음악을 중심으로 전통음악의 우수성과 세계화 가능성을 연구해 온 그는 서양음악 대위법을 통해 우리 전통음악의 잠재력을 검증하고 동서양 음악문화 융합이론의 기틀을 마련했습니다. 거문도 뱃노래, 해남 강강술래, 진도 씻김굿, 진도아리랑, 무안 품바, 판소리 등 문화유산을 지닌 지자체와 전문가들이 그에게 자문을 구하고 있으며, 모교인 목포고등학교는 2008년 '자랑스런 목중고인상'을 수여하고 역사관에 그의 업적을 전시했습니다.</p>
+  </div>
+</section>
+
+<section class="info">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Highlights</p>
+      <h2>주요 업적</h2>
+    </div>
+    <div class="highlight-grid">
+      <div class="hcard">
+        <div class="num latin">1991</div>
+        <div class="lab">서울오라토리오·드보르작 아카데미 설립</div>
+      </div>
+      <div class="hcard">
+        <div class="num latin">21</div>
+        <div class="lab">프라하 음악원 협력 계절학기 (2005~)</div>
+      </div>
+      <div class="hcard">
+        <div class="num latin">11</div>
+        <div class="lab">국제 안토닌 드보르작 작곡콩쿨 회차 (2010~2023)</div>
+      </div>
+      <div class="hcard">
+        <div class="num latin">39</div>
+        <div class="lab">대위법·화성학 연구 기간(년)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Publications</p>
+      <h2>저서 및 논문</h2>
+    </div>
+    <ul class="pub-list">
+      <li><span class="no latin">01</span><span>Counterpoint (Palestrina Style) I, II — 영문본</span></li>
+      <li><span class="no latin">02</span><span>대위법 (팔레스트리나 양식) — 한글본</span></li>
+      <li><span class="no latin">03</span><span>Harmony I, II, III — 영문본</span></li>
+      <li><span class="no latin">04</span><span>화성학 I, II, III — 한글본</span></li>
+      <li><span class="no latin">05</span><span>음악미학</span></li>
+      <li><span class="no latin">06</span><span>한국 도서지방 토속민요 연구</span></li>
+      <li><span class="no latin">07</span><span>실학주의와 자연주의의 음악교육 사상 비교</span></li>
+      <li><span class="no latin">08</span><span>음악 에세이 &lt;음악으로의 초대&gt; (집필 중)</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="about">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow" style="color:var(--gold-soft)">Testimonials</p>
+      <h2 style="color:var(--parchment)">추천의 글</h2>
+    </div>
+    <div class="quotes">
+      <div class="qcard">
+        <p class="q">마에스트로 Choi는 인류의 음악을 구해낼 메시아와 같은 분입니다. 그의 위대한 저술서 대위법은 21세기 음악의 발전 방향을 잃은 우리에게 음악의 본질과 원리를 깨우쳐 주고 있습니다.</p>
+        <p class="a latin">JAN KRÁLIK · 전 찰스대학교 교수(체코), 음악학자</p>
+      </div>
+      <div class="qcard">
+        <p class="q">이러한 시대에 출판된 최영철 감독의 대위법은 음악사의 새로운 이정표를 세웠으며, 음악을 공부하려는 모든 세계인에게 가장 귀중한 교재와 참고서적으로 사랑받으리라 믿는다.</p>
+        <p class="a latin">故 박영근 · 전 한양대학교 음악대학 작곡과 명예교수, 작곡가</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="recruit">
+  <div class="wrap">
+    <div class="recruit-box">
+      <p class="eyebrow">Messiah School</p>
+      <h2>최영철 감독과 함께, 메시아 학교</h2>
+      <p class="contact" style="margin-top:12px;">화성학·대위법 저자의 직강으로 시작하는 오라토리움 음악 교육</p>
+      <a class="btn btn-gold" href="index.html#recruit">신청 안내 보기</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="wordmark latin">DVOŘÁK ACADEMIE</div>
+    <p class="fine">메시아 학교 · Messiah School — 서울오라토리오 감독 최영철</p>
+  </div>
+</footer>
+
+</body>
+</html>
