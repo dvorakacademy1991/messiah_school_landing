@@ -18,9 +18,10 @@
       메시아 학교
     </a>
     <nav class="navlinks">
-      <a href="#curriculum">소개</a>
-      <a href="#curriculum">커리큘럼</a>
-      <a href="#performances">연주 일정</a>
+      <a href="#curriculum" data-section="curriculum">커리큘럼</a>
+      <a href="#schedule" data-section="schedule">수업 안내</a>
+      <a href="#performances" data-section="performances">연주 일정</a>
+      <a href="#teacher" data-section="teacher">강사</a>
       <a href="instructor.html">강사 소개</a>
       <a class="cta" href="#recruit">신청 안내</a>
     </nav>
@@ -76,7 +77,7 @@
   </div>
 </section>
 
-<section class="info">
+<section class="info" id="schedule">
   <div class="wrap">
     <div class="section-head">
       <p class="eyebrow">Class Info</p>
@@ -141,11 +142,11 @@
   </div>
 </section>
 
-<section class="teacher">
+<section class="teacher" id="teacher">
   <div class="wrap">
     <div class="teacher-inner">
       <div class="teacher-photo">
-        <img src="Conductor.webp" alt="최영철 감독">
+        <img src="Conductor.png" alt="최영철 감독">
       </div>
       <div>
         <p class="eyebrow latin">Instructor</p>
@@ -184,6 +185,28 @@
     <p class="fine">메시아 학교 · Messiah School — 서울오라토리오 감독 최영철</p>
   </div>
 </footer>
+
+<script>
+  (function(){
+    var links = document.querySelectorAll('.navlinks a[data-section]');
+    var sections = Array.prototype.map.call(links, function(a){
+      return document.getElementById(a.getAttribute('data-section'));
+    }).filter(Boolean);
+
+    function onScroll(){
+      var pos = window.scrollY + 120;
+      var current = sections[0];
+      sections.forEach(function(sec){
+        if(sec.offsetTop <= pos) current = sec;
+      });
+      links.forEach(function(a){
+        a.classList.toggle('active', current && a.getAttribute('data-section') === current.id);
+      });
+    }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+  })();
+</script>
 
 </body>
 </html>
