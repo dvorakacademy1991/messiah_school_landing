@@ -24,14 +24,14 @@
   .back:hover{color:var(--gold);}
   .ihero-inner{
     display:grid;
-    grid-template-columns:400px auto;
+    grid-template-columns:300px 460px;
     grid-template-areas:". label" "photo text";
     row-gap:12px; column-gap:52px;
     width:fit-content;margin:0 auto;
   }
   .ihero-label{grid-area:label;}
   .iphoto{grid-area:photo;overflow:hidden;margin-top:21px;}
-  .ihero-text{grid-area:text;max-width:520px;}
+  .ihero-text{grid-area:text;width:460px;}
   @media(max-width:780px){
     .ihero-inner{grid-template-columns:1fr;grid-template-areas:"label" "photo" "text";width:100%;}
     .iphoto{height:320px;margin-top:0;}
@@ -41,7 +41,6 @@
   .ihero .role{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold-soft);font-size:18px;margin-top:10px;}
   .ihero .titles{margin-top:20px;font-size:14.5px;color:#d7dcec;line-height:2;}
   .ihero .titles span{display:block;}
-  .ihero .titles span:nth-child(5){margin-top:14px;}
   .ihero .titles-summary{margin-top:20px;font-size:15px;color:#d7dcec;line-height:1.9;max-width:560px;}
 
   .lede-box{max-width:760px;margin:0 auto;text-align:center;}
@@ -92,7 +91,6 @@
 
 <section class="ihero">
   <div class="wrap">
-    <a class="back" href="index.html">← 메시아 학교로 돌아가기</a>
     <div class="ihero-inner">
       <p class="eyebrow latin ihero-label">Instructor</p>
       <div class="iphoto">
@@ -106,8 +104,6 @@
           <span>프라하 콘서바토리 &amp; 드보르작 아카데미 감독 겸 교수</span>
           <span>국제 안토닌 드보르작 성악콩쿨 심사위원 및 실무집행위원</span>
           <span>국제 안토닌 드보르작 작곡콩쿨 감독</span>
-          <span>39년이라는 시간 동안 대위법과 화성학의 원리를 정리해온 음악학자</span>
-          <span>유일한 오라토리움 마에스트로</span>
         </div>
       </div>
     </div>
