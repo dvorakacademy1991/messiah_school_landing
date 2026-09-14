@@ -22,15 +22,25 @@
     font-size:13.5px;letter-spacing:.06em;margin-bottom:34px;
   }
   .back:hover{color:var(--gold);}
-  .ihero-inner{display:grid;grid-template-columns:300px 1fr;gap:52px;align-items:end;}
-  @media(max-width:780px){.ihero-inner{grid-template-columns:1fr;}}
-  .iphoto{border:1px solid var(--gold-soft);padding:10px;}
-  .iphoto img{filter:sepia(.12) saturate(1.05);}
+  .ihero-inner{
+    display:grid;
+    grid-template-columns:300px 460px;
+    grid-template-areas:". label" "photo text";
+    row-gap:12px; column-gap:52px;
+    width:fit-content;margin:0 auto;
+  }
+  .ihero-label{grid-area:label;}
+  .iphoto{grid-area:photo;overflow:hidden;margin-top:21px;}
+  .ihero-text{grid-area:text;width:460px;}
+  @media(max-width:900px){
+    .ihero-inner{grid-template-columns:1fr;grid-template-areas:"label" "photo" "text";width:100%;}
+    .iphoto{height:320px;margin-top:0;}
+  }
+  .iphoto img{width:100%;height:100%;object-fit:cover;filter:sepia(.12) saturate(1.05);}
   .ihero h1{color:var(--parchment);font-size:clamp(32px,5vw,48px);}
   .ihero .role{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold-soft);font-size:18px;margin-top:10px;}
   .ihero .titles{margin-top:20px;font-size:14.5px;color:#d7dcec;line-height:2;}
   .ihero .titles span{display:block;}
-  .ihero .titles span:nth-child(5){margin-top:14px;}
   .ihero .titles-summary{margin-top:20px;font-size:15px;color:#d7dcec;line-height:1.9;max-width:560px;}
 
   .lede-box{max-width:760px;margin:0 auto;text-align:center;}
@@ -70,8 +80,10 @@
       메시아 학교
     </a>
     <nav class="navlinks">
-      <a href="index.html#curriculum">커리큘럼</a>
-      <a href="index.html#performances">연주 일정</a>
+      <a href="#bio" data-section="bio">약력</a>
+      <a href="#highlights" data-section="highlights">주요 업적</a>
+      <a href="#publications" data-section="publications">저서 및 논문</a>
+      <a href="#testimonials" data-section="testimonials">추천의 글</a>
       <a href="index.html#recruit" class="cta">신청 안내</a>
     </nav>
   </div>
@@ -79,13 +91,12 @@
 
 <section class="ihero">
   <div class="wrap">
-    <a class="back" href="index.html">← 메시아 학교로 돌아가기</a>
     <div class="ihero-inner">
+      <p class="eyebrow latin ihero-label">Instructor</p>
       <div class="iphoto">
-        <img src="Conductor.webp" alt="최영철 감독 지휘 모습">
+        <img src="Conductor.png" alt="최영철 감독 지휘 모습">
       </div>
-      <div>
-        <p class="eyebrow latin">Instructor</p>
+      <div class="ihero-text">
         <h1>최영철 감독</h1>
         <p class="role latin">Oratorium Maestro</p>
         <div class="titles">
@@ -93,15 +104,13 @@
           <span>프라하 콘서바토리 &amp; 드보르작 아카데미 감독 겸 교수</span>
           <span>국제 안토닌 드보르작 성악콩쿨 심사위원 및 실무집행위원</span>
           <span>국제 안토닌 드보르작 작곡콩쿨 감독</span>
-          <span>39년이라는 시간 동안 대위법과 화성학의 원리를 정리해온 음악학자</span>
-          <span>유일한 오라토리움 마에스트로</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="bio">
+<section class="bio" id="bio">
   <div class="wrap">
     <div class="section-head">
       <p class="eyebrow">Biography</p>
@@ -117,7 +126,7 @@
   </div>
 </section>
 
-<section class="info">
+<section class="info" id="highlights">
   <div class="wrap">
     <div class="section-head">
       <p class="eyebrow">Highlights</p>
@@ -144,7 +153,7 @@
   </div>
 </section>
 
-<section>
+<section id="publications">
   <div class="wrap">
     <div class="section-head">
       <p class="eyebrow">Publications</p>
@@ -163,7 +172,7 @@
   </div>
 </section>
 
-<section class="about">
+<section class="about" id="testimonials">
   <div class="wrap">
     <div class="section-head">
       <p class="eyebrow" style="color:var(--gold-soft)">Testimonials</p>
@@ -199,6 +208,28 @@
     <p class="fine">메시아 학교 · Messiah School — 서울오라토리오 감독 최영철</p>
   </div>
 </footer>
+
+<script>
+  (function(){
+    var links = document.querySelectorAll('.navlinks a[data-section]');
+    var sections = Array.prototype.map.call(links, function(a){
+      return document.getElementById(a.getAttribute('data-section'));
+    }).filter(Boolean);
+
+    function onScroll(){
+      var pos = window.scrollY + 120;
+      var current = sections[0];
+      sections.forEach(function(sec){
+        if(sec.offsetTop <= pos) current = sec;
+      });
+      links.forEach(function(a){
+        a.classList.toggle('active', current && a.getAttribute('data-section') === current.id);
+      });
+    }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+  })();
+</script>
 
 </body>
 </html>
