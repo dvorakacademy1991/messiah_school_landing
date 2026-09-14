@@ -222,4 +222,18 @@
 
     function onScroll(){
       var pos = window.scrollY + 120;
-    
+      var current = sections[0];
+      sections.forEach(function(sec){
+        if(sec.offsetTop <= pos) current = sec;
+      });
+      links.forEach(function(a){
+        a.classList.toggle('active', current && a.getAttribute('data-section') === current.id);
+      });
+    }
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+  })();
+</script>
+
+</body>
+</html>
