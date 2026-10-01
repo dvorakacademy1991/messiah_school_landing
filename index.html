@@ -193,6 +193,14 @@
 
 <script>
   (function(){
+    // 공유된 링크에 #으로 섹션이 붙어 있어도 항상 맨 위(첫 섹션)에서 시작
+    if (window.location.hash) {
+      window.scrollTo(0, 0);
+      history.replaceState(null, '', window.location.pathname);
+    }
+  })();
+
+  (function(){
     var links = document.querySelectorAll('.navlinks a[data-section]');
     var sections = Array.prototype.map.call(links, function(a){
       return document.getElementById(a.getAttribute('data-section'));
